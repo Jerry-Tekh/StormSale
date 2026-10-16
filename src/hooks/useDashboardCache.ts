@@ -33,7 +33,7 @@ export function useDashboardCache() {
         keys.map(async (key) => {
           const value = await idbCache.get<any>(key);
           if (value !== null) {
-            cached[key] = value;
+            cached[key as keyof DashboardMetrics] = value;
           }
         }),
       );

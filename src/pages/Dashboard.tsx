@@ -34,7 +34,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
   const [expandedRole, setExpandedRole] = useState<string | null>(null);
   const [hoveredRole, setHoveredRole] = useState<string | null>(null);
   const [isSigning, setIsSigning] = useState(false);
-  const [backgroundSynced, setBackgroundSynced] = useState(false);
 
   // Reconcile cached metrics with live network data (background sync, zero layout shift)
   useEffect(() => {
@@ -47,7 +46,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
       connectorType,
     };
     persistMetrics(liveMetrics);
-    setBackgroundSynced(true);
   }, [hydrated, isConnected, network, xlmBalance, connectorType, persistMetrics]);
 
   // Invalidate cache on wallet disconnect
